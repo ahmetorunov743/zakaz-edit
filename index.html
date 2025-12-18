@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+text-align: center;
+color: #aaa;
+}
+input, textarea {
+width: 100%;
+padding: 12px;
+margin-top: 12px;
+border-radius: 10px;
+border: none;
+background: #1a1a1a;
+color: #fff;
+font-size: 14px;
+}
+textarea { resize: vertical; min-height: 90px; }
+button {
+width: 100%;
+margin-top: 16px;
+padding: 14px;
+border-radius: 12px;
+border: none;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+}
+.main {
+background: #2563eb;
+color: #fff;
+}
+.secondary {
+background: transparent;
+color: #fff;
+border: 1px solid #333;
+}
+.row {
+display: flex;
+gap: 12px;
+margin-top: 12px;
+}
+small {
+display: block;
+text-align: center;
+color: #666;
+margin-top: 12px;
+}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>Заказ эдита</h1>
+<p>Делаю качественные эдиты под ваш стиль</p>
+
+
+<input id="name" placeholder="Твоё имя" />
+<input id="contact" placeholder="Telegram или Email" />
+<textarea id="details" placeholder="Опиши эдит: стиль, трек, длительность, рефы"></textarea>
+
+
+<button class="main" onclick="sendToTelegram()">Отправить и перейти в Telegram</button>
+
+
+<div class="row">
+<button class="secondary" onclick="openTelegram()">Telegram</button>
+<button class="secondary" onclick="openEmail()">Gmail</button>
+</div>
+
+
+<small>Цена и сроки обсуждаются лично</small>
+</div>
+
+
+<script>
+const TELEGRAM = "Reklomist777";
+const EMAIL = "ahmetorunov743@gmail.com";
+
+
+function sendToTelegram() {
+const name = document.getElementById('name').value;
+const contact = document.getElementById('contact').value;
+const details = document.getElementById('details').value;
+
+
+const text = `Привет! Хочу заказать эдит.%0A%0AИмя: ${name}%0AКонтакт: ${contact}%0AОписание: ${details}`;
+window.location.href = `https://t.me/${TELEGRAM}?text=${text}`;
+}
+
+
+function openTelegram() {
+window.location.href = `https://t.me/${TELEGRAM}`;
+}
+
+
+function openEmail() {
+window.location.href = `mailto:${EMAIL}?subject=Заказ эдита`;
+}
+</script>
+</body>
+</html>
