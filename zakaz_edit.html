@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Заказ эдита</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #000000, #111111);
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: #0a0a0a;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+      margin: 0 0 8px 0;
+      text-align: center;
+    }
+
+    p {
+      margin: 0 0 16px 0;
+      text-align: center;
+      color: #aaaaaa;
+    }
+
+    input, textarea {
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      background: #1a1a1a;
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .main {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #333333;
+    }
+
+    .row {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    small {
+      display: block;
+      margin-top: 12px;
+      text-align: center;
+      color: #666666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Заказ эдита</h1>
+    <p>Делаю качественные эдиты под ваш стиль</p>
+
+    <input id="name" placeholder="Твоё имя">
+    <input id="contact" placeholder="Telegram или Email">
+    <textarea id="details" placeholder="Опиши эдит: стиль, трек, длительность, рефы"></textarea>
+
+    <button class="main" onclick="sendToTelegram()">Отправить и перейти в Telegram</button>
+
+    <div class="row">
+      <button class="secondary" onclick="openTelegram()">Telegram</button>
+      <button class="secondary" onclick="openEmail()">Gmail</button>
+    </div>
+
+    <small>Цена и сроки обсуждаются лично</small>
+  </div>
+
+  <script>
+    const TELEGRAM = "Reklomist777";
+    const EMAIL = "ahmetorunov743@gmail.com";
+
+    function sendToTelegram() {
+      const name = document.getElementById('name').value;
+      const contact = document.getElementById('contact').value;
+      const details = document.getElementById('details').value;
+
+      const text = `Привет! Хочу заказать эдит.%0A%0AИмя: ${name}%0AКонтакт: ${contact}%0AОписание: ${details}`;
+      window.location.href = `https://t.me/${TELEGRAM}?text=${text}`;
+    }
+
+    function openTelegram() {
+      window.location.href = `https://t.me/${TELEGRAM}`;
+    }
+
+    function openEmail() {
+      window.location.href = `mailto:${EMAIL}?subject=Заказ эдита`;
+    }
+  </script>
+
+</body>
+</html>
